@@ -28,7 +28,6 @@ const create = async(body)  => {
             message: message.message,
             date: message.date
         });
-        createJob();
         return {
             user: message.user,
             message: message.message,

@@ -27,6 +27,8 @@ require('./sockets/socket')
 
 //controllers
 app.use(require('./controllers/message.controller'));
+app.use(require('./controllers/user.controller'));
+app.use(require('./controllers/login.controller'));
 mongoose.connect(urlDB,
     { useNewUrlParser: true , useCreateIndex: true, useUnifiedTopology: true},
      (err,res) => {
