@@ -8,10 +8,13 @@ const { urlDB } = require('../config/config');
 
 // 
 const clientExport = io.on('connection', (client) => {
-    console.log('Usuario conectado');
+    console.log(client.handshake.query.name);
+    io.emit('connectClient', client.handshake.query.name);
     client.on('disconnect', () => {
         console.log('Usuario desconectado');
     })
+
+
 
     // Escuchar el client
     client.on('enviarMensaje', (req) => {
