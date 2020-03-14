@@ -2,11 +2,8 @@ const { io } = require('../server')
 const Agenda = require('agenda');
 const { urlDB } = require('../config/config');
 
-// const client = io.on('connection', (client) => {
-// });
 
 
-// 
 const clientExport = io.on('connection', (client) => {
     console.log(client.handshake.query.name);
     io.emit('connectClient', client.handshake.query.name);
@@ -16,7 +13,7 @@ const clientExport = io.on('connection', (client) => {
 
 
 
-    // Escuchar el client
+    // Escuchar el clien
     client.on('enviarMensaje', (req) => {
         client.join('room', () => console.log(`Socket ${client.id} joined room`));
         io.emit('recibirMensaje' , {
